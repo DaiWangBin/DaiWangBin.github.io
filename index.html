@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>戴王斌 · 项目与实机演示</title>
+<meta name="description" content="戴王斌的项目作品集：油茶林智能巡检、医疗试管视觉抓取、多传感器融合与动态点云建图。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23152e32'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-size='27' font-weight='bold' fill='%23f6f6ef'%3EDW%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+</head>
+<body id="top">
+<a class="skip" href="#work">跳到项目内容</a>
+<header><a class="brand" href="#top" aria-label="戴王斌，返回顶部"><span class="monogram">DW</span><span>戴王斌 <small>Wangbin Dai</small></span></a><a class="nav" href="#work">项目与实机演示 <span>↗</span></a></header>
+<main id="work">
+<section class="section-heading"><div class="eyebrow">01 / SELECTED WORK</div><div><h1>项目与实机演示<span class="period">.</span></h1><p>机器视觉 · 机器人系统 · 多传感器融合</p></div><span class="count">2025 — 2026<br>03 PROJECTS</span></section>
+<article class="project" id="project-1">
+<figure><div class="media"><img src="x1.gif" data-motion="x1.gif" data-still="x1-still.jpg" width="800" height="450" alt="项目一实机演示：无人机在油茶林上空自主巡检" fetchpriority="high"><span class="media-badge"><i></i> 实机演示 · GIF</span><button class="motion" aria-label="暂停项目一动图" aria-pressed="false">Ⅱ 暂停</button></div><figcaption><span>01 / FIELD ROBOTICS</span><span>无人机自主巡检</span></figcaption></figure>
+<div class="project-copy"><div class="eyebrow">FEATURED · 01 <span class="status">进行中</span></div><h2>油茶林智能监测<br>与病虫害精准管控</h2><p class="english" lang="en">Intelligent Forest Monitoring &amp; Precision Disease Management</p><p class="description">面向油茶林生态监测的协作机器人研发，负责从病害数据集构建、检测网络改进到边缘端部署，打通无人机视频流、端侧推理与云端可视化链路。</p><div class="metrics"><div><strong>25+ <em>FPS</em></strong><span>边缘端稳定推理</span></div><div><strong>RK3588</strong><span>模型端侧部署</span></div><div><strong>INT8</strong><span>量化推理优化</span></div></div><ul class="contributions"><li>采集自然林间与人工诱导双场景样本，完成清洗、标注与增强。</li><li>改进 YOLO26 注意力与多尺度特征融合，优化病害检测。</li></ul><div class="tags"><span>YOLO26</span><span>ONNX</span><span>Edge AI</span></div><div class="project-footer"><span>揭榜挂帅项目 · <b>主要负责人</b></span><span>2025.01 — 至今</span></div></div>
+</article>
+<article class="project" id="project-2">
+<figure><div class="media"><img src="x2.gif" data-motion="x2.gif" data-still="x2-still.jpg" width="800" height="451" alt="项目二实机演示：机械臂使用二指夹具抓取并分拣医用试管" loading="lazy"><span class="media-badge"><i></i> 实机演示 · GIF</span><button class="motion" aria-label="暂停项目二动图" aria-pressed="false">Ⅱ 暂停</button></div><figcaption><span>02 / ROBOTIC MANIPULATION</span><span>视觉引导 · 试管抓取与分拣</span></figcaption></figure>
+<div class="project-copy"><div class="eyebrow">FEATURED · 02 <span class="status complete">已完成</span></div><h2>医院智能轨道物流机器人<br>视觉抓取与分类放置</h2><p class="english" lang="en">Vision-Guided Grasping for Hospital Logistics Robotics</p><p class="description">面向医用试管复杂工况，融合目标检测与深度感知，完成手眼标定和三维抓取位姿解算，实现机械臂与二指夹具协同的自动抓取、分类放置闭环验证。</p><div class="steps"><span>视觉检测</span><b>↗</b><span>位姿解算</span><b>↗</b><span>抓取分拣</span></div><ul class="contributions"><li>构建复杂工况试管数据集，改进 YOLOv8 检测网络。</li><li>基于 ROS / Python 联动机械臂与夹具，完成全流程实机验证。</li></ul><div class="tags"><span>YOLOv8</span><span>RGB-D</span><span>ROS</span><span>Python</span></div><div class="project-footer"><span>协同控制 · <b>核心成员</b></span><span>2025.03 — 2025.12</span></div></div>
+</article>
+<article class="project" id="project-3">
+<figure><div class="media pointcloud"><img src="x3.png" width="392" height="219" alt="项目三效果图：激光雷达与视觉融合，点云中的机器人位姿和动态障碍物检测结果" loading="lazy"><span class="media-badge">项目效果图</span></div><figcaption><span>03 / MULTISENSOR MAPPING</span><span>融合感知 · 动态障碍物检测</span></figcaption></figure>
+<div class="project-copy"><div class="eyebrow">FEATURED · 03 <span class="status">进行中</span></div><h2>GPmapper 多传感器融合<br>与动态点云建图</h2><p class="english" lang="en">Dynamic Object Filtering for Clean Point Cloud Mapping</p><p class="description">基于 Fast-Livo2 的 GPmapper 设备研发，融合激光雷达点云与视觉信息，实现行人实时检测与跟踪，并在建图阶段剔除行人对应点云，生成无行人干扰的洁净地图。</p><div class="steps"><span>雷达 + 视觉</span><b>↗</b><span>行人剔除</span><b>↗</b><span>洁净建图</span></div><ul class="contributions"><li>基于 LV-DOT 框架实现多传感器融合检测与动态目标跟踪。</li><li>将检测结果接入 Fast-Livo2 建图管线，过滤行人点云。</li></ul><div class="tags"><span>Fast-Livo2</span><span>LV-DOT</span><span>LiDAR</span><span>SLAM</span></div><div class="project-footer"><span>设备研发 · <b>核心成员</b></span><span>2026.01 — 至今</span></div></div>
+</article>
+</main><footer><span>© 2026 戴王斌 <span class="footer-en">· Wangbin Dai</span></span><span class="footer-field">Machine Vision &amp; Robotics</span><a href="#top">返回顶部 ↑</a></footer>
+</body></html>
