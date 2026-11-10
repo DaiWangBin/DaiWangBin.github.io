@@ -1,30 +1,42 @@
-document.querySelectorAll('.motion').forEach((button, index) => {
-  const video = button.closest('.media').querySelector('video');
-  if (!video) return;
+const videos = [...document.querySelectorAll('.media video')];
+const manualPlayback = window.matchMedia('(max-width: 850px), (pointer: coarse), (prefers-reduced-motion: reduce)').matches || navigator.connection?.saveData;
+videos.forEach((video, index) => {
+  const button = video.closest('.media').querySelector('.motion');
+  if (!button) return;
+  let failed = false;
   button.type = 'button';
   const sync = () => {
     const paused = video.paused;
     button.setAttribute('aria-pressed', String(paused));
     button.setAttribute('aria-label', `${paused ? '播放' : '暂停'}项目${index + 1}视频`);
-    button.textContent = paused ? '▷ 播放' : 'Ⅱ 暂停';
+    button.textContent = failed ? '▷ 点击重试' : paused ? '▷ 播放' : video.readyState < 3 ? 'Ⅱ 加载中' : 'Ⅱ 暂停';
   };
-  video.addEventListener('play', sync);
-  video.addEventListener('pause', sync);
-  video.addEventListener('error', () => {
-    button.textContent = '视频加载失败';
-    button.disabled = true;
-  });
-  button.addEventListener('click', async () => {
-    if (video.paused) {
-      try { await video.play(); } catch { video.controls = true; }
-    } else {
-      video.pause();
+  const load = () => {
+    if (!video.getAttribute('src')) {
+      video.src = video.dataset.src;
+      video.load();
     }
-    sync();
+  };
+  const play = async () => {
+    load();
+    if (failed) { failed = false; video.load(); }
+    videos.forEach(other => { if (other !== video) other.pause(); });
+    try { await video.play(); } catch { sync(); }
+  };
+  ['play', 'pause', 'playing', 'waiting', 'loadeddata'].forEach(event => video.addEventListener(event, sync));
+  video.addEventListener('error', () => { failed = true; sync(); });
+  button.addEventListener('click', () => {
+    if (video.paused || failed) play();
+    else video.pause();
   });
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    video.autoplay = false;
-    video.pause();
-  }
   sync();
+  if (!manualPlayback && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        play();
+        observer.disconnect();
+      }
+    }, { threshold: 0.3 });
+    observer.observe(video);
+  }
 });
